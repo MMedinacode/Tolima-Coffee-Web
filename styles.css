@@ -517,7 +517,12 @@ h1,h2,h3,h4{
 .carta-bloque-head h3{margin:0}
 .carta-bloque-n{
   font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--c-suave);font-weight:600;white-space:nowrap;
+  color:var(--c-suave);font-weight:600;
+  /* ⚠️ Sin `white-space:nowrap`. Esta ranura se dibujó para un número
+     ("13", "6"), donde nowrap no hacía nada. Pero cuando lleva un
+     subtítulo —"15 · con leche entera, de avena o sin lactosa"— lo
+     forzaba a una sola línea y corría el sitio entero en horizontal en
+     el celular: 407px de contenido en una pantalla de 375. */
 }
 .carta-bloque .aviso{margin:0 0 16px}
 
