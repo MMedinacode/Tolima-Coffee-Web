@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tolima Coffee — café de especialidad en Ñuñoa</title>
+<meta name="description" content="Tolima Coffee, Av. Irarrázaval 1989 local 1, Ñuñoa. Café de especialidad, filtrados V60, origami y chemex, tortas de la casa y sándwiches en masa madre. 4,7 ★ en Google.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#16242E">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%2316242E'/%3E%3Cpath d='M32 14c7 0 11 5 11 11s-4 11-11 11-11-5-11-11 4-11 11-11z' fill='none' stroke='%232F8F63' stroke-width='3'/%3E%3Cpath d='M32 25v22M24 47h16' stroke='%23B08A3C' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="Tolima Coffee">
+<meta property="og:title" content="Tolima Coffee — café de especialidad en Ñuñoa">
+<meta property="og:description" content="Filtrados en V60, origami y chemex. Tortas de la casa y sándwiches en masa madre. Abiertos sábado y domingo. 4,7 ★ con 47 reseñas.">
+<meta property="og:url" content="https://mmedinacode.github.io/Tolima-Coffee-Web/">
+<meta property="og:image" content="https://mmedinacode.github.io/Tolima-Coffee-Web/fotos/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Torta de zanahoria y un latte con arte en Tolima Coffee, Ñuñoa">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Piazzolla es una serif dibujada en Buenos Aires: tiene el calor
+     latinoamericano que pide un café colombiano en Ñuñoa, y no estaba
+     usada. Gantari para el texto, Signika para los rótulos. Las tres
+     verificadas por grep sobre los 76 index.html del portafolio. -->
+<link href="https://fonts.googleapis.com/css2?family=Piazzolla:ital,opsz,wght@0,8..30,400;0,8..30,600;0,8..30,700;1,8..30,400&family=Gantari:wght@300;400;500;600;700&family=Signika:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Loader: el grano de café con el tallo, como el de su logo. -->
+<div id="loader" class="loader" aria-hidden="true">
+  <div class="loader-in">
+    <svg class="loader-grano" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M32 8c9 0 15 7 15 16s-6 16-15 16-15-7-15-16S23 8 32 8z"/>
+      <path d="M32 12c-4 6-4 14 0 20s4 14 0 20"/>
+    </svg>
+    <p class="loader-txt">Tolima</p>
+    <p class="loader-sub">Coffee Shop</p>
+  </div>
+</div>
+
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="head">
+  <div class="head-in">
+    <a class="brand" href="#inicio" data-tab="inicio" aria-label="Tolima Coffee, ir al inicio">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><path d="M32 8c9 0 15 7 15 16s-6 16-15 16-15-7-15-16S23 8 32 8z"/><path d="M32 12c-4 6-4 14 0 20s4 14 0 20"/></svg>
+      </span>
+      <span class="brand-txt"><strong>Tolima</strong><em>Coffee Shop · Ñuñoa</em></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="nav" aria-label="Secciones">
+      <ul class="nav-links">
+        <li><a href="#inicio"    data-tab="inicio" class="on">Inicio</a></li>
+        <li><a href="#nosotros"  data-tab="nosotros">Nosotros</a></li>
+        <li><a href="#carta"     data-tab="carta">Carta</a></li>
+        <li><a href="#resenas"   data-tab="resenas">Reseñas</a></li>
+        <li><a href="#redes"     data-tab="redes">Redes</a></li>
+        <li><a href="#visitanos" data-tab="visitanos">Visítanos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══════════════ INICIO ══════════════ -->
+<section class="tab-panel on" data-tab-panel="inicio" id="inicio">
+  <div class="hero">
+    <div class="hero-txt">
+      <p class="eyebrow">Av. Irarrázaval 1989, local 1 · Ñuñoa</p>
+      <h1>El obscuro<br><em>elixir</em>.</h1>
+      <p class="hero-lead">
+        No lo escribimos nosotros: lo escribió alguien que se hospedó tres
+        semanas en el Airbnb de enfrente. Café de especialidad, filtrados en
+        <strong>V60, origami y chemex</strong>, tortas de la casa y
+        sándwiches en masa madre.
+      </p>
+
+      <ul class="sellos" aria-label="Lo que hay">
+        <li>Filtrados</li>
+        <li>Mocktails</li>
+        <li>Jugos naturales</li>
+        <li>Masa madre</li>
+        <li>Pet friendly</li>
+      </ul>
+
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#carta" data-tab="carta">Ver la carta</a>
+        <a class="btn btn-ghost" href="#resenas" data-tab="resenas">Leer las reseñas</a>
+      </div>
+      <p class="hero-open">
+        <span class="dot" id="statusDot" aria-hidden="true"></span>
+        <span data-horario-estado>Martes a viernes de 10:30 a 15:00 y de 16:00 a 20:00</span>
+      </p>
+    </div>
+    <figure class="hero-img">
+      <img src="fotos/hero-torta-zanahoria.jpg" alt="Una porción de torta de zanahoria y un latte con arte sobre una mesa de madera" fetchpriority="high" decoding="async">
+      <figcaption class="hero-cap">Su destacado en Google: capuchino y tarta de zanahoria</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <div class="cifras reveal stagger">
+      <div><b data-contar>56</b><span>productos con precio</span></div>
+      <div><b>4,7</b><span>★ con 47 reseñas</span></div>
+      <div><b data-contar>3</b><span>métodos de filtrado</span></div>
+      <div><b data-contar>10</b><span>% con tu vaso Tolima</span></div>
+    </div>
+
+    <div class="tri reveal stagger">
+      <article class="tri-card">
+        <h3>Trae tu vaso y pagas menos</h3>
+        <p>Está escrito en su propia carta: <strong>con los vasos Tolima
+           reutilizables tienes 10% de descuento en todas las bebidas</strong>.</p>
+        <a href="#carta" data-tab="carta" class="lnk">Ver la carta →</a>
+      </article>
+      <article class="tri-card">
+        <h3>Abiertos sábado y domingo</h3>
+        <p>“Lo mejor, <strong>abierto el día domingo</strong>”, dice una de
+           sus reseñas. En Ñuñoa eso no es obvio.</p>
+        <a href="#visitanos" data-tab="visitanos" class="lnk">Ver el horario →</a>
+      </article>
+      <article class="tri-card">
+        <h3>Del Tolima al norte de Chile</h3>
+        <p>Lulo colombiano y <strong>mango de Pica</strong>, blend iquiqueño
+           y <strong>aceitunas de Azapa</strong>. Dos rutas en la misma carta.</p>
+        <a href="#nosotros" data-tab="nosotros" class="lnk">Conocer el local →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ NOSOTROS ══════════════ -->
+<section class="tab-panel" data-tab-panel="nosotros" id="nosotros">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Nosotros</p>
+      <h2>Café en el barrio</h2>
+      <p class="sec-lead">
+        Es la primera línea de su propia bio, y describe bastante bien lo
+        que pasa adentro.
+      </p>
+    </header>
+
+    <div class="split reveal">
+      <figure class="split-img">
+        <img src="fotos/perro-y-cafe.jpg" alt="Una taza de café y un libro sobre las rodillas, con una perrita echada al lado" loading="lazy" decoding="async">
+        <figcaption>Un café, un libro y una perrita echada al lado</figcaption>
+      </figure>
+      <div class="split-txt">
+        <h3>Se puede venir con el perro y quedarse a leer</h3>
+        <p>
+          Una clienta lo contó así en Google: <em>“pasé un momento muy rico
+          con mi perrita, tomando mi cafecito y leyendo un libro”</em>. Esa
+          foto es suya, y es la que mejor explica el lugar.
+        </p>
+        <p>
+          Detrás de la barra hay un mural verde con un pueblo de montaña y
+          su iglesia — <strong>el Tolima colombiano</strong>, que le da el
+          nombre —, y en la repisa, un sombrero vueltiao. En el otro muro,
+          <strong>azul</strong>, las cajas de café en estantes de madera.
+        </p>
+      </div>
+    </div>
+
+    <div class="split split-rev reveal">
+      <figure class="split-img">
+        <img src="fotos/vaso-tolima.jpg" alt="Vaso reutilizable de Tolima Coffee con un diseño de mapa" loading="lazy" decoding="async">
+        <figcaption>El vaso reutilizable, con su mapa</figcaption>
+      </figure>
+      <div class="split-txt">
+        <h3>El vaso que te hace ahorrar</h3>
+        <blockquote class="cita">
+          “Con los vasos Tolima reutilizables tienes 10% de descuento en
+          todas las bebidas.”
+          <cite>Escrito en su propia carta, junto a un gato dibujado</cite>
+        </blockquote>
+        <p>
+          No es una promoción de temporada: está impreso en la carta, al
+          lado de las tortas. <strong>Compras el vaso una vez y el
+          descuento te acompaña siempre.</strong>
+        </p>
+        <a href="#carta" data-tab="carta" class="lnk">Ver toda la carta →</a>
+      </div>
+    </div>
+
+    <div class="gal reveal stagger">
+      <figure><img src="fotos/fachada.jpg" alt="La puerta de Tolima Coffee con su logo en vinilo" loading="lazy" decoding="async"></figure>
+      <figure><img src="fotos/vitrina.jpg" alt="La vitrina con los nombres de las tortas escritos en el vidrio" loading="lazy" decoding="async"></figure>
+      <figure><img src="fotos/dos-cappuccinos.jpg" alt="Dos cappuccinos con arte en la espuma sobre una mesa redonda" loading="lazy" decoding="async"></figure>
+      <figure><img src="fotos/salon-azul.jpg" alt="El salón con el muro azul y las cajas de café en estantes de madera" loading="lazy" decoding="async"></figure>
+    </div>
+    <p class="note">Todas las fotos son del propio local, de su ficha de Google Maps.</p>
+
+    <!--
+      ⚠️ La foto de la perrita va RECORTADA. En el original se ve a alguien
+      detrás del mostrador; se dejó sólo el tercio inferior —la taza, el
+      libro y la perrita— para no publicar a nadie sin permiso.
+      Y de las 10 fotos bajadas se descartó una entera: era de "Café del
+      Barrio", el local vecino que Google lista como similar. El extractor
+      sigue trayendo negocios ajenos.
+    -->
+    <div class="aviso reveal">
+      <strong>Nota honesta:</strong> la foto de la perrita está recortada
+      a propósito — en la original aparece alguien detrás del mostrador y
+      no le hemos preguntado. <b>Con una foto del salón hecha por ustedes,
+      esta página mejora sola.</b>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CARTA ══════════════ -->
+<section class="tab-panel" data-tab-panel="carta" id="carta">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Carta</p>
+      <h2>56 productos,<br>56 precios reales</h2>
+      <p class="sec-lead">
+        Leídos uno por uno de las dos cartas que tienen fotografiadas en su
+        ficha de Google. El rayo ⚡ marca lo que ellos recomiendan.
+      </p>
+    </header>
+
+    <!--
+      ⚠️ LOS 56 PRECIOS SON REALES. Se leyeron ampliando las dos fotos de
+      carta de su ficha (fotos/carta-cafe.jpg y fotos/carta-comida.jpg),
+      que van publicadas más abajo para que cualquiera pueda comprobarlo.
+      Lo único que NO se pudo leer es el precio del té orange peko / hierba
+      luisa / cedrón: en la foto queda tapado. Va sin precio en vez de con
+      uno inventado.
+    -->
+    <div class="aviso reveal">
+      <strong>De dónde salen estos precios:</strong> de las dos fotos de su
+      propia carta, ampliadas y leídas una por una. <b>Las dos fotos van al
+      final de esta página</b> para que se puedan comprobar. Conviene
+      confirmar en el local.
+    </div>
+
+    <section class="carta-bloque reveal">
+      <header class="carta-bloque-head">
+        <h3>Café</h3>
+        <span class="carta-bloque-n">15 · con leche entera, de avena o sin lactosa</span>
+      </header>
+      <div class="menu reveal stagger">
+        <article class="menu-item">
+          <img src="fotos/dos-cappuccinos.jpg" alt="Cappuccino con arte en la espuma" loading="lazy" decoding="async">
+          <div><h4>Cappuccino</h4><p>El que Google destaca de su carta.</p></div>
+          <span class="price">$3.000</span></article>
+        <article class="menu-item"><div><h4>Espresso doble</h4></div><span class="price">$2.500</span></article>
+        <article class="menu-item"><div><h4>Americano</h4></div><span class="price">$2.600</span></article>
+        <article class="menu-item"><div><h4>Macchiato</h4></div><span class="price">$2.700</span></article>
+        <article class="menu-item"><div><h4>Flat white</h4></div><span class="price">$2.900</span></article>
+        <article class="menu-item"><div><h4>Latte 8 oz</h4></div><span class="price">$3.200</span></article>
+        <article class="menu-item"><div><h4>Latte 12 oz</h4></div><span class="price">$3.400</span></article>
+        <article class="menu-item"><div><h4>Mocaccino</h4></div><span class="price">$3.800</span></article>
+        <article class="menu-item"><div><h4>Dirty chai <i class="rayo" title="Recomendación de la casa">⚡</i></h4><p>Recomendación de la casa.</p></div><span class="price">$4.000</span></article>
+        <article class="menu-item"><div><h4>Chocolate óbolo</h4></div><span class="price">$4.000</span></article>
+        <article class="menu-item"><div><h4>Chai latte</h4></div><span class="price">$3.400</span></article>
+        <article class="menu-item"><div><h4>Matcha latte</h4></div><span class="price">$3.700</span></article>
+        <article class="menu-item"><div><h4>Blend iquiqueño <i class="rayo" title="Recomendación de la casa">⚡</i></h4><p>Recomendación de la casa.</p></div><span class="price">$3.200</span></article>
+        <article class="menu-item"><div><h4>Golden milk</h4></div><span class="price">$3.200</span></article>
+        <article class="menu-item"><div><h4>Té negro, en tetera</h4><p>También hay orange peko, hierba luisa y cedrón.</p></div><span class="price">$2.800</span></article>
+      </div>
+    </section>
+
+    <section class="carta-bloque reveal">
+      <header class="carta-bloque-head">
+        <h3>Filtrados</h3>
+        <span class="carta-bloque-n">V60 · origami · chemex</span>
+      </header>
+      <div class="menu reveal stagger">
+        <article class="menu-item">
+          <div><h4>Filtrado del día</h4><p>En V60, origami o chemex. <strong>Consulte orígenes.</strong></p></div>
+          <span class="price">$3.200</span></article>
+      </div>
+    </section>
+
+    <section class="carta-bloque reveal">
+      <header class="carta-bloque-head">
+        <h3>Café frío</h3>
+        <span class="carta-bloque-n">13</span>
+      </header>
+      <div class="menu reveal stagger">
+        <article class="menu-item"><div><h4>Iced coffee</h4></div><span class="price">$3.000</span></article>
+        <article class="menu-item"><div><h4>Iced latte</h4></div><span class="price">$3.900</span></article>
+        <article class="menu-item"><div><h4>Iced mocca</h4></div><span class="price">$4.200</span></article>
+        <article class="menu-item"><div><h4>Chocolate frío</h4></div><span class="price">$4.500</span></article>
+        <article class="menu-item"><div><h4>Iced chai latte</h4></div><span class="price">$4.000</span></article>
+        <article class="menu-item"><div><h4>Iced matcha latte</h4></div><span class="price">$4.500</span></article>
+        <article class="menu-item"><div><h4>Iced matcha frambuesa</h4></div><span class="price">$5.000</span></article>
+        <article class="menu-item"><div><h4>Coffee orange</h4></div><span class="price">$3.500</span></article>
+        <article class="menu-item"><div><h4>Iced tea, sabores <i class="rayo" title="Recomendación de la casa">⚡</i></h4><p>Recomendación de la casa.</p></div><span class="price">$4.200</span></article>
+        <article class="menu-item"><div><h4>Affogato</h4></div><span class="price">$4.000</span></article>
+        <article class="menu-item"><div><h4>Cold brew</h4></div><span class="price">$4.900</span></article>
+        <article class="menu-item"><div><h4>Cold brew foam <i class="rayo" title="Recomendación de la casa">⚡</i></h4><p>Recomendación de la casa.</p></div><span class="price">$5.400</span></article>
+        <article class="menu-item"><div><h4>Espresso tonic, sabores</h4></div><span class="price">$4.600</span></article>
+      </div>
+    </section>
+
+    <section class="carta-bloque reveal">
+      <header class="carta-bloque-head">
+        <h3>Mocktails</h3>
+        <span class="carta-bloque-n">3 · todos con espresso y agua tónica</span>
+      </header>
+      <div class="menu reveal stagger">
+        <article class="menu-item"><div><h4>Spicy tonic</h4><p>Pomelo rosado, canela, limón, syrup de chili, agua tónica y espresso.</p></div><span class="price">$4.900</span></article>
+        <article class="menu-item"><div><h4>Summer splash</h4><p>Pomelo rosado, jengibre, limón, agua tónica y espresso.</p></div><span class="price">$4.900</span></article>
+        <article class="menu-item"><div><h4>Basil instinct</h4><p>Syrup de albahaca, jugo de naranja, agua tónica y espresso.</p></div><span class="price">$4.900</span></article>
+      </div>
+    </section>
+
+    <section class="carta-bloque reveal">
+      <header class="carta-bloque-head">
+        <h3>Jugos naturales</h3>
+        <span class="carta-bloque-n">5 · de acá y de Colombia</span>
+      </header>
+      <div class="menu reveal stagger">
+        <article class="menu-item"><div><h4>Mango de Pica</h4><p>Del norte de Chile.</p></div><span class="price">$5.000</span></article>
+        <article class="menu-item"><div><h4>Lulo colombiano</h4></div><span class="price">$4.500</span></article>
+        <article class="menu-item"><div><h4>Guayaba roja</h4></div><span class="price">$4.500</span></article>
+        <article class="menu-item"><div><h4>Maracuyá</h4></div><span class="price">$4.500</span></article>
+        <article class="menu-item"><div><h4>Frutos rojos</h4></div><span class="price">$4.000</span></article>
+      </div>
+    </section>
+
+    <section class="carta-bloque reveal">
+      <header class="carta-bloque-head">
+        <h3>Dulces</h3>
+        <span class="carta-bloque-n">8 · desde $2.000</span>
+      </header>
+      <div class="menu reveal stagger">
+        <article class="menu-item">
+          <img src="fotos/hero-torta-zanahoria.jpg" alt="Porción de torta de zanahoria" loading="lazy" decoding="async">
+          <div><h4>Tortas, porciones varias</h4><p>Red velvet, choco manjar, carrot. Cambian según el día.</p></div>
+          <span class="price">$4.300</span></article>
+        <article class="menu-item"><div><h4>Queque de la casa <i class="rayo" title="Recomendación de la casa">⚡</i></h4><p>Recomendación de la casa, y lo más barato de la vitrina.</p></div><span class="price">$2.000</span></article>
+        <article class="menu-item"><div><h4>Crumble cookie <i class="rayo" title="Recomendación de la casa">⚡</i></h4><p>La de red velvet es la que nombra una reseña: “10/10”.</p></div><span class="price">$2.800</span></article>
+        <article class="menu-item"><div><h4>Brownie de la casa <i class="rayo" title="Recomendación de la casa">⚡</i></h4></div><span class="price">$3.500</span></article>
+        <article class="menu-item"><div><h4>Brownie con helado</h4><p>Su brownie artesanal con base de chocolate trencito y nueces.</p></div><span class="price">$5.500</span></article>
+        <article class="menu-item"><div><h4>Cheesecake de crema vasca <i class="rayo" title="Recomendación de la casa">⚡</i></h4></div><span class="price">$4.300</span></article>
+        <article class="menu-item">
+          <img src="fotos/vitrina.jpg" alt="Vitrina con las tortas" loading="lazy" decoding="async">
+          <div><h4>Cheesecake, variedades</h4><p>Frutos rojos, maracuyá. Los nombres van escritos en el vidrio.</p></div>
+          <span class="price">$4.200</span></article>
+        <article class="menu-item"><div><h4>Streussel de manzana</h4></div><span class="price">$4.200</span></article>
+      </div>
+    </section>
+
+    <section class="carta-bloque reveal">
+      <header class="carta-bloque-head">
+        <h3>Salados</h3>
+        <span class="carta-bloque-n">5 · todos en pan de masa madre</span>
+      </header>
+      <div class="menu reveal stagger">
+        <article class="menu-item"><div><h4>Pastrami <i class="rayo" title="Recomendación de la casa">⚡</i></h4><p>Pesto, rúcula, tomate cherry, queso y pastrami.</p></div><span class="price">$5.800</span></article>
+        <article class="menu-item"><div><h4>Veggie <i class="rayo" title="Recomendación de la casa">⚡</i></h4><p>Pesto, rúcula, tomate cherry, queso y champiñón.</p></div><span class="price">$5.600</span></article>
+        <article class="menu-item"><div><h4>Prensadito <i class="rayo" title="Recomendación de la casa">⚡</i></h4><p>Pan de masa madre prensado en emulsión de mantequilla, queso mantecoso y jamón pierna.</p></div><span class="price">$4.800</span></article>
+        <article class="menu-item"><div><h4>Tostadas de estación <i class="rayo" title="Recomendación de la casa">⚡</i></h4><p>Masa madre, queso crema y mermelada frutal de estación.</p></div><span class="price">$4.800</span></article>
+        <article class="menu-item"><div><h4>Tostadas de la casa <i class="rayo" title="Recomendación de la casa">⚡</i></h4><p>Masa madre con aceitunas de Azapa y mantequilla.</p></div><span class="price">$4.000</span></article>
+      </div>
+    </section>
+
+    <section class="carta-bloque reveal">
+      <header class="carta-bloque-head">
+        <h3>Extras y otros</h3>
+        <span class="carta-bloque-n">6</span>
+      </header>
+      <div class="menu reveal stagger">
+        <article class="menu-item"><div><h4>Kombucha</h4><p>Pomelo, jengibre, té negro, entre otras.</p></div><span class="price">$3.200</span></article>
+        <article class="menu-item"><div><h4>Agua con gas</h4></div><span class="price">$1.500</span></article>
+        <article class="menu-item"><div><h4>Agua sin gas</h4></div><span class="price">$1.500</span></article>
+        <article class="menu-item"><div><h4>Bebidas</h4></div><span class="price">$1.500</span></article>
+        <article class="menu-item"><div><h4>Leche vegetal</h4><p>Se suma a cualquier bebida.</p></div><span class="price">$500</span></article>
+        <article class="menu-item"><div><h4>Syrup de sabores</h4></div><span class="price">$500</span></article>
+      </div>
+    </section>
+
+    <section class="carta-bloque carta-bloque-ojo reveal">
+      <header class="carta-bloque-head">
+        <h3>Las dos cartas, para comprobar</h3>
+        <span class="carta-bloque-n">leídas el 16-09-2026</span>
+      </header>
+      <p class="cmp-lead">
+        Ningún precio de esta página está inventado. Éstas son las dos fotos
+        de las que salieron, tal como están en su ficha de Google.
+      </p>
+      <div class="cartas-fotos">
+        <figure><img src="fotos/carta-cafe.jpg" alt="Carta de cafés, cafés fríos y filtrados de Tolima Coffee" loading="lazy" decoding="async"><figcaption>Café, café frío y filtrados</figcaption></figure>
+        <figure><img src="fotos/carta-comida.jpg" alt="Carta de mocktails, jugos, dulces y salados de Tolima Coffee" loading="lazy" decoding="async"><figcaption>Mocktails, jugos, dulces y salados</figcaption></figure>
+      </div>
+      <p class="cmp-pie">
+        Lo único que no se pudo leer es el precio del <b>té orange peko,
+        hierba luisa y cedrón</b>: en la foto queda tapado. Va sin precio
+        antes que con uno inventado.
+      </p>
+    </section>
+  </div>
+</section>
+
+<!-- ══════════════ RESEÑAS ══════════════ -->
+<section class="tab-panel" data-tab-panel="resenas" id="resenas">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Reseñas</p>
+      <h2>4,7 ★ · 47 reseñas</h2>
+      <p class="sec-lead">Tres de las cuarenta y siete, copiadas textuales de su ficha de Google.</p>
+    </header>
+
+    <div class="revs reveal stagger">
+      <blockquote class="rev">
+        <p class="stars" aria-label="5 de 5 estrellas">★★★★★</p>
+        <p>Nos hospedamos en un Airbnb justo al frente por tres semanas, y nos sentimos muy agradecidos de la vida por tener un Café que sirviese <b>el obscuro elixir</b> de tan buena manera. Amamos cada detalle del café…</p>
+        <footer><b>Italo Andrés Garrido Kandora</b><span>Reseña en Google · hace un mes</span></footer>
+      </blockquote>
+
+      <blockquote class="rev">
+        <p class="stars" aria-label="5 de 5 estrellas">★★★★★</p>
+        <p>Me encantó el café 😍 pasé un momento muy rico <b>con mi perrita</b>, tomando mi cafecito y leyendo un libro. Los chicos muy amigables también. La comida se veía increíble, me compré una crumble cookie de red velvet para llevar. La probé y 10/10! Volveré 😊</p>
+        <footer><b>Constanza Rojas Vivanco</b><span>Local Guide · 10 reseñas · 27 fotos · hace 3 semanas</span></footer>
+      </blockquote>
+
+      <blockquote class="rev">
+        <p class="stars" aria-label="5 de 5 estrellas">★★★★★</p>
+        <p>Siempre un café de calidad y bien equilibrado. Lo mejor, <b>abierto el día domingo</b> y su atención cordial. Recomendado.</p>
+        <footer><b>Pedro Ojeda</b><span>Pedro PETER Fotografía · hace 4 meses</span></footer>
+        <div class="respuesta">
+          <b>Respuesta del local</b>
+          <p>Nos reconforta saber que tu experiencia fue grata, estamos en constante mejora, muchas gracias por compartir tu experiencia. 🙌👍</p>
+        </div>
+      </blockquote>
+    </div>
+
+    <div class="aviso reveal">
+      <strong>Lo que más se repite en las 47:</strong> “café de especialidad”,
+      “ambiente”, “filtrado” y “zanahoria”. <b>Y el dueño contesta las
+      reseñas</b>, cosa que casi ningún local del barrio hace.
+    </div>
+
+    <!-- ⚠️ Estos enlaces van por CID (cid=10952515649541451063), que es el
+         identificador que SÍ se verificó en su ficha. No se usa un Place ID
+         `ChIJ...` porque no se pudo leer ninguno, y antes que inventarlo,
+         se enlaza la ficha completa: las reseñas están a un toque. -->
+    <div class="rev-cta reveal">
+      <a class="btn btn-solid" href="https://maps.google.com/?cid=10952515649541451063" target="_blank" rel="noopener">Ver las 47 reseñas en Google</a>
+      <a class="btn btn-ghost" href="https://maps.google.com/?cid=10952515649541451063" target="_blank" rel="noopener">Abrir su ficha de Google</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ REDES ══════════════ -->
+<section class="tab-panel" data-tab-panel="redes" id="redes">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Redes</p>
+      <h2>Dónde encontrarnos</h2>
+      <p class="sec-lead">Sólo lo verificado el 16-09-2026. Ningún perfil inventado.</p>
+    </header>
+
+    <div class="redes">
+      <article class="red-card reveal">
+        <a class="red-card-head" href="https://www.instagram.com/tolima.coffee/" target="_blank" rel="noopener">
+          <span class="red-logo red-logo-ig"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.71-1.46-1.38-2.13C21.32 1.35 20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm7.85-10.41a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg></span>
+          <span class="red-card-txt">
+            <b>@tolima.coffee</b>
+            <em>6.402 seguidores</em>
+          </span>
+          <span class="red-card-cta">Seguir →</span>
+        </a>
+        <a class="red-grid" href="https://www.instagram.com/tolima.coffee/" target="_blank" rel="noopener"
+           data-cta="Ver en Instagram" aria-label="Abrir el Instagram de Tolima Coffee">
+          <figure><img src="fotos/hero-torta-zanahoria.jpg" alt="Torta de zanahoria y latte" loading="lazy" decoding="async"></figure>
+          <figure><img src="fotos/vaso-tolima.jpg" alt="El vaso reutilizable de Tolima" loading="lazy" decoding="async"></figure>
+          <figure><img src="fotos/vitrina.jpg" alt="La vitrina de tortas" loading="lazy" decoding="async"></figure>
+        </a>
+        <p class="red-pie">
+          Sus destacadas: Merch · Ustedes · Horarios · Esencia · Momentos · Bebidas · Inauguración.
+        </p>
+      </article>
+
+      <article class="red-card reveal">
+        <a class="red-card-head" href="https://www.tiktok.com/@tolima.coffee" target="_blank" rel="noopener">
+          <span class="red-logo red-logo-tiktok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0115.54 3h-3.09v12.4a2.59 2.59 0 01-2.59 2.5 2.59 2.59 0 01-2.59-2.59 2.59 2.59 0 013.39-2.47V9.7a5.68 5.68 0 00-.8-.06A5.7 5.7 0 004.16 15.3 5.7 5.7 0 009.86 21a5.7 5.7 0 005.7-5.7V9.01a7.35 7.35 0 004.3 1.38V7.3a4.3 4.3 0 01-3.26-1.48z"/></svg></span>
+          <span class="red-card-txt">
+            <b>@tolima.coffee</b>
+            <em>También están en TikTok</em>
+          </span>
+          <span class="red-card-cta">Ver →</span>
+        </a>
+        <a class="red-grid" href="https://www.tiktok.com/@tolima.coffee" target="_blank" rel="noopener"
+           data-cta="Ver en TikTok" aria-label="Abrir el TikTok de Tolima Coffee">
+          <figure><img src="fotos/dos-cappuccinos.jpg" alt="Dos cappuccinos" loading="lazy" decoding="async"></figure>
+          <figure><img src="fotos/perro-y-cafe.jpg" alt="Café, libro y perrita" loading="lazy" decoding="async"></figure>
+          <figure><img src="fotos/fachada.jpg" alt="La fachada" loading="lazy" decoding="async"></figure>
+        </a>
+        <p class="red-pie">El enlace sale de su propia bio de Instagram.</p>
+      </article>
+
+      <article class="red-card reveal">
+        <a class="red-card-head" href="https://maps.google.com/?cid=10952515649541451063" target="_blank" rel="noopener">
+          <span class="red-logo red-logo-map"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C7.31 0 3.5 3.81 3.5 8.5c0 6.38 8.5 15.5 8.5 15.5s8.5-9.12 8.5-15.5C20.5 3.81 16.69 0 12 0zm0 11.6a3.1 3.1 0 110-6.2 3.1 3.1 0 010 6.2z"/></svg></span>
+          <span class="red-card-txt">
+            <b>Ficha en Google Maps</b>
+            <em>4,7 ★ · 47 reseñas</em>
+          </span>
+          <span class="red-card-cta">Abrir →</span>
+        </a>
+        <a class="red-grid" href="https://maps.google.com/?cid=10952515649541451063" target="_blank" rel="noopener"
+           data-cta="Ver la ficha" aria-label="Abrir la ficha de Tolima Coffee en Google Maps">
+          <figure><img src="fotos/salon-azul.jpg" alt="El salón con el muro azul" loading="lazy" decoding="async"></figure>
+          <figure><img src="fotos/carta-cafe.jpg" alt="La carta de cafés" loading="lazy" decoding="async"></figure>
+          <figure><img src="fotos/carta-comida.jpg" alt="La carta de comida" loading="lazy" decoding="async"></figure>
+        </a>
+        <p class="red-pie"><b>Contestan las reseñas</b>, una por una.</p>
+      </article>
+    </div>
+
+    <!-- ⚠️ También tienen Threads (@tolima.coffee, enlazado desde su perfil
+         de Instagram). No se le hizo tarjeta propia porque no se pudo
+         verificar actividad. Teléfono: NO publican ninguno, en ningún canal. -->
+    <div class="aviso aviso-ojo reveal">
+      <strong>Lo que hoy no tienen:</strong> ni sitio web ni teléfono
+      publicado. Su ficha de Google sigue ofreciendo <em>“añadir número de
+      teléfono”</em> y <em>“añadir sitio web”</em>. <b>Toda su presencia en
+      internet depende de dos redes sociales y de una ficha que no
+      controlan.</b>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ VISÍTANOS ══════════════ -->
+<section class="tab-panel" data-tab-panel="visitanos" id="visitanos">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Visítanos</p>
+      <h2>Av. Irarrázaval 1989,<br>local 1</h2>
+    </header>
+
+    <div class="visit reveal">
+      <div class="visit-info">
+        <div class="vblock">
+          <h3>Dirección</h3>
+          <p>Av. Irarrázaval 1989, local 1<br>Ñuñoa, Región Metropolitana</p>
+          <p class="sub">Plus Code G9WQ+FV</p>
+        </div>
+
+        <div class="vblock">
+          <h3>Horario</h3>
+          <p class="estado"><span class="dot" aria-hidden="true"></span><span data-horario-estado>Martes a viernes de 10:30 a 15:00 y de 16:00 a 20:00</span></p>
+          <ul class="horario horario-semana" id="horario-lista" data-horario-semana>
+            <li data-dia="1"><span>Lunes</span><b class="cerrado">Cerrado</b></li>
+            <li data-dia="2"><span>Martes</span><b>10:30 – 15:00 · 16:00 – 20:00</b></li>
+            <li data-dia="3"><span>Miércoles</span><b>10:30 – 15:00 · 16:00 – 20:00</b></li>
+            <li data-dia="4"><span>Jueves</span><b>10:30 – 15:00 · 16:00 – 20:00</b></li>
+            <li data-dia="5"><span>Viernes</span><b>10:30 – 15:00 · 16:00 – 20:00</b></li>
+            <li data-dia="6"><span>Sábado</span><b>09:30 – 14:00 · 15:00 – 19:00</b></li>
+            <li data-dia="0"><span>Domingo</span><b>09:30 – 14:00 · 15:00 – 19:00</b></li>
+          </ul>
+          <!--
+            ⚠️ GANCHO PARA EL PRIMER MENSAJE.
+            Su bio de Instagram dice "Lun a Vie 10:30 a 15:00 / 16:00 a
+            20:00", pero su ficha de Google marca el LUNES CERRADO. Con
+            6.402 seguidores, esa bio manda gente un día que no abren.
+            Acá se publica el horario de Google, que es el más específico.
+          -->
+          <div class="ojo">
+            <b>Ojo con esto:</b> la bio de su Instagram dice “Lun a Vie”,
+            pero en Google el <b>lunes aparece cerrado</b>. Acá va el de
+            Google, consultado el 16-09-2026. Si es el correcto, conviene
+            arreglar la bio: con 6.402 seguidores, hay gente que puede estar
+            llegando un lunes para nada.
+          </div>
+        </div>
+
+        <div class="vblock">
+          <h3>Contacto</h3>
+          <!-- ⚠️ NO publican teléfono en ningún canal. No se inventa uno:
+               va el recuadro apagado, que es honesto y además es el mejor
+               argumento de venta. -->
+          <div class="vtel vtel-sin">
+            <span class="vtel-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></span>
+            <span class="vtel-txt">
+              <b>No publican teléfono</b>
+              <em>Hoy sólo se les puede escribir por Instagram</em>
+            </span>
+          </div>
+        </div>
+
+        <div class="vblock">
+          <h3>Cómo se puede pedir</h3>
+          <ul class="vpedir">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v2H3V5zm2 4h14l-1 5h-4v6h-2v-6H6L5 9zm-1 12h16v2H4v-2z"/></svg> Consumo en el lugar</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7V6a6 6 0 1112 0v1h3v14a2 2 0 01-2 2H5a2 2 0 01-2-2V7h3zm2 0h8V6a4 4 0 10-8 0v1z"/></svg> Para llevar</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h11v5H3v-5zm12-4h4l3 4v5h-2a2.5 2.5 0 01-5 0V8zM5.5 17a2.5 2.5 0 105 0 2.5 2.5 0 00-5 0zm11 0a2.5 2.5 0 105 0 2.5 2.5 0 00-5 0z"/></svg> Entrega a domicilio</li>
+          </ul>
+          <p class="sub">Los tres los declara su ficha de Google. <b>No indican por cuál app</b>.</p>
+        </div>
+
+        <div class="vblock">
+          <h3>En el local</h3>
+          <ul class="vpedir">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9a2 2 0 110-4 2 2 0 010 4zm5-2a2 2 0 110-4 2 2 0 010 4zm5 0a2 2 0 110-4 2 2 0 010 4zm5 2a2 2 0 110-4 2 2 0 010 4zM12 10c2.8 0 6 2.6 6 5.6 0 2-1.6 3.4-3.6 3.4-1 0-1.7-.4-2.4-.4s-1.4.4-2.4.4C7.6 19 6 17.6 6 15.6 6 12.6 9.2 10 12 10z"/></svg> Pet friendly</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v2H4V4zm2 4h12v3H6V8zm-2 5h16v7H4v-7z"/></svg> Leche de avena y sin lactosa</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10l-1 8h-3v8h3v4H8v-4h3v-8H8L7 2z"/></svg> 10% con tu vaso Tolima</li>
+          </ul>
+          <p class="sub">Lo del vaso y las leches está escrito en su propia carta.</p>
+        </div>
+
+        <div class="vblock vblock-cta">
+          <a class="btn btn-solid" href="https://www.google.com/maps/dir/?api=1&destination=-33.453825,-70.6102605" target="_blank" rel="noopener">Cómo llegar</a>
+          <a class="btn btn-ghost" href="https://waze.com/ul?ll=-33.453825,-70.6102605&navigate=yes" target="_blank" rel="noopener">Ir con Waze</a>
+        </div>
+      </div>
+
+      <div class="visit-map">
+        <!-- ⚠️ SIN loading="lazy": así el mapa ya está listo cuando se abre
+             la pestaña, en vez de empezar a cargar recién ahí. -->
+        <iframe
+          title="Mapa de Tolima Coffee en Av. Irarrázaval 1989, Ñuñoa"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330!2d-70.6102605!3d-33.453825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf00748e51ed%3A0x97ff26f44fd32d37!2sTolima%20Coffee!5e0!3m2!1ses!2scl!4v1757900000000!5m2!1ses!2scl"
+          width="100%" height="100%" style="border:0" allowfullscreen=""
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+
+    <figure class="fachada reveal">
+      <img src="fotos/fachada.jpg" alt="La puerta de Tolima Coffee, con su logo y los vinilos de bakery y caffè" loading="lazy" decoding="async">
+      <figcaption>La puerta, en Irarrázaval con Pedro de Valdivia.</figcaption>
+    </figure>
+  </div>
+</section>
+
+</main>
+
+<!-- Flotantes. Derecha = contacto: Instagram y TikTok, que son los dos
+     únicos canales que tienen. No hay teléfono ni WhatsApp que poner, y no
+     se inventa ninguno. Izquierda vacía: su ficha declara entrega a
+     domicilio pero no dice por cuál app. -->
+<div class="float float-right">
+  <a class="fab fab-ig" href="https://www.instagram.com/tolima.coffee/" target="_blank" rel="noopener"
+     data-label="@tolima.coffee" aria-label="Instagram de Tolima Coffee"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.71-1.46-1.38-2.13C21.32 1.35 20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm7.85-10.41a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg></a>
+  <a class="fab fab-tiktok" href="https://www.tiktok.com/@tolima.coffee" target="_blank" rel="noopener"
+     data-label="TikTok" aria-label="TikTok de Tolima Coffee"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0115.54 3h-3.09v12.4a2.59 2.59 0 01-2.59 2.5 2.59 2.59 0 01-2.59-2.59 2.59 2.59 0 013.39-2.47V9.7a5.68 5.68 0 00-.8-.06A5.7 5.7 0 004.16 15.3 5.7 5.7 0 009.86 21a5.7 5.7 0 005.7-5.7V9.01a7.35 7.35 0 004.3 1.38V7.3a4.3 4.3 0 01-3.26-1.48z"/></svg></a>
+  <button class="fab fab-top" id="toTop" data-label="Volver arriba" aria-label="Volver arriba"
+    style="background:var(--tinta);color:var(--oro-cl)"><span aria-hidden="true">↑</span></button>
+</div>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <p class="foot-brand">Tolima</p>
+      <p class="foot-sub">Coffee Shop</p>
+      <p>Av. Irarrázaval 1989, local 1 · Ñuñoa</p>
+      <p data-horario-resumen>Mar a Vie 10:30 – 15:00 y 16:00 – 20:00 · Sáb y Dom 09:30 – 14:00 y 15:00 – 19:00 · Lunes cerrado</p>
+      <p><a href="https://www.instagram.com/tolima.coffee/" target="_blank" rel="noopener">@tolima.coffee</a></p>
+    </div>
+    <div class="foot-demo">
+      <p><strong>Esta es una demo.</strong> No es el sitio oficial de Tolima Coffee.</p>
+      <p>Hecha con datos públicos reales de su ficha de Google Maps y de su
+         Instagram (verificados el 16-09-2026), y con los precios leídos de
+         las fotos de su propia carta, para mostrarle al local cómo se vería
+         su página web.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.HORARIO = {
+  dias: ["Cerrado",
+         "10:30 - 15:00 y 16:00 - 20:00",
+         "10:30 - 15:00 y 16:00 - 20:00",
+         "10:30 - 15:00 y 16:00 - 20:00",
+         "10:30 - 15:00 y 16:00 - 20:00",
+         "09:30 - 14:00 y 15:00 - 19:00",
+         "09:30 - 14:00 y 15:00 - 19:00"],
+  fuente: "Ficha de Google Maps, 16-09-2026"
+};
+window.REDES = {
+  instagram: {
+    user: "tolima.coffee",
+    seguidores: "6.402",
+    fotos: ["fotos/hero-torta-zanahoria.jpg","fotos/vaso-tolima.jpg","fotos/vitrina.jpg"]
+  },
+  tiktok: { user: "tolima.coffee" }
+};
+</script>
+
+<script src="script.js"></script>
+<script src="vida.js"></script>
+<script src="carta-fotos.js"></script>
+<script src="carrito.js"></script>
+<script src="horario.js"></script>
+<script src="redes.js"></script>
+<script src="flotantes.js"></script>
+</body>
+</html>

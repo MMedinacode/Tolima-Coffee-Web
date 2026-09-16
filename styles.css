@@ -1,0 +1,740 @@
+/* ════════════════════════════════════════════════════════════════
+   Tolima Coffee — Av. Irarrázaval 1989 local 1, Ñuñoa
+
+   IDENTIDAD, muestreada con Pillow de sus propias fotos:
+   · Detrás de la barra hay un MURAL VERDE con un pueblo de montaña y su
+     iglesia: el Tolima colombiano, que le da el nombre. Ése es el color
+     de marca (#2F8F63; muestreado en #5D9C7E con el muro blanco dentro).
+   · El otro muro del salón es AZUL (#45607A / #1D2B40) → la tinta.
+   · Su vaso reutilizable es DORADO MOSTAZA (#A18C4E / #BEA95C).
+   · Las mesas de madera clara y la loza dan el HUESO.
+
+   ⚠️ DIFERENCIACIÓN. En el portafolio ya hay azules (Río Deva, La
+   Pasarela, Gutier, La Rondine) y verdes oscuros (Zöliakie). Ninguno
+   combina AZUL como tinta + VERDE como marca + DORADO de acento, que es
+   justo lo que tiene este local en sus dos muros y en su vaso.
+
+   TIPOGRAFÍA: Piazzolla (titulares) · Gantari (texto) · Signika
+   (rótulos). Piazzolla es una serif dibujada en Buenos Aires — el calor
+   latinoamericano que pide un café colombiano en Ñuñoa. Las tres
+   verificadas como NO usadas por grep sobre los 76 index.html.
+
+   MOTIVO: el grano de café con el tallo de su logo. Va en el loader
+   dibujándose, en el logotipo y como viñeta de los rótulos.
+   ════════════════════════════════════════════════════════════════ */
+
+:root{
+  --tinta:#16242E;        /* el muro azul en sombra */
+  --tinta-2:#24394A;
+  --azul:#2C4560;         /* el muro azul */
+  --verde:#2F8F63;        /* el mural — color de marca */
+  --verde-os:#1E6746;
+  --verde-cl:#D6E9DE;
+  --oro:#B08A3C;          /* el vaso reutilizable */
+  --oro-cl:#E6D3A2;
+  --hueso:#F3EFE4;        /* la página */
+  --papel:#FFFDF7;        /* las tarjetas */
+  --texto:#23292B;
+  --gris:#69706A;
+  --linea:#DFD9C8;
+
+  --r:13px;
+  --r-s:8px;
+  --sombra:0 1px 2px rgba(22,36,46,.05), 0 12px 28px -18px rgba(22,36,46,.4);
+  --sombra-alta:0 2px 9px rgba(22,36,46,.09), 0 30px 56px -26px rgba(22,36,46,.5);
+  --fx:cubic-bezier(.22,.8,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;background:var(--hueso);color:var(--texto);
+  font-family:"Gantari",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16.5px;line-height:1.7;overflow-x:hidden;font-weight:400;
+}
+
+/* height:auto es obligatorio: si no, un atributo height del <img> le gana
+   al aspect-ratio del CSS y revienta el hero en mobile. */
+img{max-width:100%;display:block;height:auto}
+a{color:var(--verde-os);text-underline-offset:3px}
+
+h1,h2,h3,h4{
+  font-family:"Piazzolla",Georgia,serif;font-weight:600;
+  color:var(--tinta);line-height:1.14;margin:0 0 .5em;letter-spacing:-.01em;
+}
+
+.wrap{width:min(1160px,100%);margin-inline:auto;padding-inline:20px}
+
+.skip{position:absolute;left:-9999px;top:0;z-index:999;background:var(--tinta);
+  color:var(--oro-cl);padding:12px 18px;border-radius:0 0 var(--r-s) 0}
+.skip:focus{left:0}
+
+/* ─────────── Loader: el grano dibujándose ─────────── */
+.loader{
+  position:fixed;inset:0;z-index:2000;background:var(--tinta);
+  display:grid;place-content:center;justify-items:center;
+  transition:opacity .34s var(--fx),visibility .34s var(--fx);
+}
+.loader.off{opacity:0;visibility:hidden}
+.loader-in{text-align:center}
+.loader-grano{
+  width:70px;height:70px;margin:0 auto 16px;display:block;
+  fill:none;stroke:var(--verde);stroke-width:2.4;stroke-linecap:round;
+  stroke-dasharray:240;stroke-dashoffset:240;
+  animation:trazar 1.4s var(--fx) forwards;
+}
+@keyframes trazar{to{stroke-dashoffset:0}}
+.loader-txt{
+  margin:0;font-family:"Piazzolla",serif;font-weight:600;
+  font-size:clamp(30px,7vw,44px);color:var(--hueso);line-height:1.05;
+  animation:aparecer .55s var(--fx) .45s both;
+}
+.loader-sub{
+  margin:4px 0 0;font-family:"Signika",sans-serif;font-size:13px;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--oro);
+  animation:aparecer .55s var(--fx) .65s both;
+}
+@keyframes aparecer{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ─────────── Cabecera ─────────── */
+.head{
+  position:sticky;top:0;z-index:900;
+  background:color-mix(in srgb,var(--tinta) 95%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:2px solid var(--verde);
+}
+.head-in{width:min(1160px,100%);margin-inline:auto;padding:0 20px;
+  min-height:72px;display:flex;align-items:center;gap:13px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;margin-right:auto}
+.brand-mark{width:34px;height:34px;flex:none;display:grid;place-content:center;
+  transition:transform .4s var(--fx)}
+.brand-mark svg{width:100%;height:100%;fill:none;stroke:var(--verde);
+  stroke-width:3.5;stroke-linecap:round;display:block}
+.brand:hover .brand-mark{transform:rotate(-12deg) scale(1.08)}
+.brand-txt{display:flex;flex-direction:column;line-height:1.14}
+.brand-txt strong{font-family:"Piazzolla",serif;font-size:21px;font-weight:600;
+  color:var(--hueso)}
+.brand-txt em{font-style:normal;font-family:"Signika",sans-serif;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--oro)}
+
+.nav-links{display:flex;gap:2px;list-style:none;margin:0;padding:0}
+.nav-links a{display:block;padding:10px 13px;min-height:44px;line-height:24px;
+  text-decoration:none;color:#A9B6AF;font-weight:500;font-size:15px;
+  border-radius:var(--r-s);position:relative;
+  transition:color .22s var(--fx),background .22s var(--fx)}
+.nav-links a::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:2px;
+  background:var(--verde);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s var(--fx)}
+.nav-links a:hover{color:var(--hueso);background:rgba(47,143,99,.14)}
+.nav-links a:hover::after,.nav-links a.on::after{transform:scaleX(1)}
+.nav-links a.on{color:var(--hueso);font-weight:600}
+
+.burger{display:none;order:3;width:44px;height:44px;padding:11px;background:none;
+  border:1px solid var(--verde);border-radius:var(--r-s);cursor:pointer;
+  flex-direction:column;justify-content:space-between}
+.burger span{display:block;height:2px;width:100%;background:var(--verde);border-radius:2px;
+  transition:transform .3s var(--fx),opacity .2s var(--fx)}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* ─────────── Paneles ─────────── */
+.tab-panel{display:none}
+.tab-panel.on{display:block;animation:fade .42s var(--fx) both}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ─────────── Hero ─────────── */
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;
+  gap:clamp(24px,4vw,54px);width:min(1160px,100%);margin-inline:auto;
+  padding:clamp(36px,5vw,70px) 20px clamp(28px,3vw,42px)}
+
+.eyebrow{
+  margin:0 0 16px;font-family:"Signika",sans-serif;
+  font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--verde-os);display:flex;align-items:center;gap:9px;
+}
+/* La viñeta es el grano de café del logo. */
+.eyebrow::before{
+  content:"";width:9px;height:12px;flex:none;background:var(--verde);
+  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;transform:rotate(-14deg);
+}
+
+.hero h1{font-size:clamp(44px,7vw,76px);margin-bottom:.2em;line-height:1}
+.hero h1 em{font-style:italic;color:var(--verde)}
+.hero-lead{font-size:clamp(16px,1.55vw,18px);color:var(--gris);max-width:33em;margin:0 0 24px}
+.hero-lead strong{color:var(--tinta);font-weight:600}
+
+.sellos{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0 0 28px;padding:0}
+.sellos li{
+  background:var(--papel);color:var(--tinta);border:1px solid var(--linea);
+  border-radius:99px;padding:5px 15px;font-size:12.5px;font-weight:500;
+  animation:sellito .45s var(--fx) both;
+  transition:border-color .24s var(--fx),color .24s var(--fx);
+}
+.sellos li:hover{border-color:var(--verde);color:var(--verde-os)}
+.sellos li:nth-child(1){animation-delay:.04s}
+.sellos li:nth-child(2){animation-delay:.10s}
+.sellos li:nth-child(3){animation-delay:.16s}
+.sellos li:nth-child(4){animation-delay:.22s}
+.sellos li:nth-child(5){animation-delay:.28s;border-color:var(--verde);color:var(--verde-os)}
+@keyframes sellito{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.hero-cta{display:flex;gap:11px;flex-wrap:wrap;margin-bottom:22px}
+.hero-open{display:flex;align-items:center;gap:9px;margin:0;font-size:15px;color:var(--gris)}
+.dot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--verde)}
+
+.hero-img{margin:0;position:relative}
+/* El marco va como BORDER, nunca como box-shadow con spread: un spread
+   grande sobre un bloque alto revienta la capa del compositor y deja la
+   página en blanco al hacer scroll (pasó en Café del Hayedo). */
+.hero-img img{width:100%;aspect-ratio:4/3;object-fit:cover;
+  border-radius:var(--r);border:1px solid var(--linea);box-shadow:var(--sombra-alta)}
+.hero-cap{
+  position:absolute;left:14px;bottom:14px;
+  background:var(--tinta);color:var(--oro-cl);font-weight:500;
+  font-size:12.5px;padding:7px 15px;border-radius:99px;
+}
+
+/* ─────────── Cifras ─────────── */
+.cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;
+  margin:clamp(32px,4.5vw,52px) 0 0;padding:26px 0;
+  border-top:2px solid var(--verde);border-bottom:1px solid var(--linea)}
+.cifras div{display:flex;flex-direction:column;align-items:center;text-align:center;line-height:1.15}
+.cifras b{font-family:"Piazzolla",serif;font-size:36px;font-weight:600;color:var(--verde-os);
+  font-variant-numeric:tabular-nums}
+.cifras span{font-family:"Signika",sans-serif;font-size:10.5px;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--gris);margin-top:8px}
+
+/* ─────────── Tríptico ─────────── */
+.tri{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:16px;
+  padding:clamp(32px,5vw,56px) 0}
+.tri-card{
+  background:var(--papel);border:1px solid var(--linea);border-radius:var(--r);
+  padding:28px 26px;position:relative;
+  transition:transform .3s var(--fx),border-color .3s var(--fx),box-shadow .3s var(--fx);
+}
+/* El filete verde de arriba aparece al pasar el mouse. */
+.tri-card::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:3px;
+  background:var(--verde);border-radius:var(--r) var(--r) 0 0;
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .35s var(--fx);
+}
+.tri-card:hover{transform:translateY(-4px);border-color:var(--verde);box-shadow:var(--sombra-alta)}
+.tri-card:hover::before{transform:scaleX(1)}
+.tri-card h3{font-size:20px}
+.tri-card p{margin:0 0 14px;color:var(--gris);font-size:15.5px}
+.tri-card strong{color:var(--tinta);font-weight:600}
+.lnk{font-weight:600;font-size:14.5px;color:var(--verde-os);text-decoration:none;
+  border-bottom:1px solid var(--verde);padding-bottom:2px;
+  transition:color .2s var(--fx),border-color .2s var(--fx)}
+.lnk:hover{color:var(--oro);border-bottom-color:var(--oro)}
+
+/* ─────────── Secciones ─────────── */
+.sec-head{padding:clamp(32px,5vw,60px) 0 8px;max-width:44rem}
+.sec-head h2{font-size:clamp(31px,4.8vw,50px)}
+.sec-lead{color:var(--gris);font-size:17px;margin:0}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,3.5vw,46px);
+  align-items:center;padding:clamp(26px,4vw,48px) 0}
+.split-rev .split-img{order:2}
+.split-img{margin:0}
+.split-img img{width:100%;aspect-ratio:4/3;object-fit:cover;
+  border-radius:var(--r);border:1px solid var(--linea);box-shadow:var(--sombra)}
+.split-img figcaption{margin-top:10px;font-family:"Signika",sans-serif;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--verde-os)}
+.split-txt h3{font-size:clamp(21px,2.5vw,28px)}
+.split-txt p{color:var(--gris);margin:0 0 15px}
+.split-txt strong{color:var(--tinta);font-weight:600}
+.split-txt em{color:var(--verde-os);font-style:italic}
+
+.cita{
+  margin:0 0 18px;padding:24px 28px;background:var(--tinta);
+  border-radius:var(--r);border-left:4px solid var(--verde);
+  font-family:"Piazzolla",serif;font-size:23px;font-style:italic;
+  line-height:1.4;color:var(--oro-cl);
+}
+.cita cite{display:block;margin-top:14px;
+  font-family:"Signika",sans-serif;font-style:normal;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--verde);opacity:.9}
+
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;padding-top:12px}
+.gal figure{margin:0;overflow:hidden;border-radius:var(--r-s);border:1px solid var(--linea)}
+.gal img{width:100%;aspect-ratio:1/1;object-fit:cover;
+  transition:transform .6s var(--fx)}
+.gal figure:hover{border-color:var(--verde)}
+.gal figure:hover img{transform:scale(1.07)}
+
+.note{font-family:"Signika",sans-serif;font-size:10.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--gris);margin:16px 0 20px;line-height:2}
+.note b{color:var(--verde-os)}
+
+.aviso{background:var(--papel);border-left:4px solid var(--verde);
+  border-radius:0 var(--r-s) var(--r-s) 0;padding:18px 22px;margin:20px 0;
+  color:var(--gris);font-size:15.5px;box-shadow:var(--sombra)}
+.aviso strong{color:var(--tinta)}
+.aviso b{color:var(--verde-os)}
+.aviso em{color:var(--texto);font-style:italic}
+.aviso-ojo{background:var(--tinta);color:#B4C3BB;border-left-color:var(--oro);box-shadow:none}
+.aviso-ojo strong{color:var(--hueso)}
+.aviso-ojo b{color:var(--oro-cl)}
+.aviso-ojo em{color:#D3DED7}
+
+/* El recuadro del lunes: es el gancho, y va marcado */
+.ojo{
+  margin-top:12px;padding:14px 18px;border-radius:var(--r-s);
+  background:rgba(176,138,60,.1);border:1px dashed var(--oro);
+  font-size:14.5px;color:var(--texto);line-height:1.6;
+}
+.ojo b{color:var(--oro)}
+
+/* ─────────── Carta ─────────── */
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:11px}
+.menu-item{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;
+  background:var(--papel);border:1px solid var(--linea);border-radius:var(--r-s);
+  padding:13px 16px;
+  transition:transform .26s var(--fx),border-color .26s var(--fx),box-shadow .26s var(--fx)}
+.menu-item:hover{transform:translateY(-2px);border-color:var(--verde);box-shadow:var(--sombra)}
+.menu-item img{width:62px;height:62px;border-radius:var(--r-s);object-fit:cover;flex:none}
+.menu-item h4{margin:0 0 3px;font-size:16px;line-height:1.3}
+.menu-item p{margin:0;font-size:13.5px;color:var(--gris);line-height:1.5}
+.menu-item strong{color:var(--verde-os)}
+/* El rayo es de ellos: marca sus recomendaciones en la carta impresa. */
+.rayo{font-style:normal;font-size:12px;color:var(--oro);margin-left:3px}
+.price{
+  font-family:"Signika",sans-serif;font-size:13.5px;font-weight:600;
+  color:var(--hueso);white-space:nowrap;background:var(--verde-os);
+  padding:6px 13px;border-radius:99px;font-variant-numeric:tabular-nums;
+}
+
+/* Las dos fotos de carta, para comprobar los precios */
+.carta-bloque-ojo{background:var(--tinta);border-color:var(--verde)}
+.carta-bloque.carta-bloque-ojo{background:var(--tinta);border-color:var(--verde)}
+.carta-bloque.carta-bloque-ojo h3{color:var(--hueso)}
+.carta-bloque.carta-bloque-ojo .carta-bloque-head{border-bottom-color:rgba(47,143,99,.5)}
+.carta-bloque.carta-bloque-ojo .carta-bloque-n{color:var(--verde)}
+.cmp-lead,.cmp-pie{color:#B4C3BB;font-size:15.5px;margin:0 0 16px}
+.cmp-pie{margin:16px 0 0}
+.cmp-lead b,.cmp-pie b{color:var(--oro-cl)}
+.cartas-fotos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.cartas-fotos figure{margin:0}
+.cartas-fotos img{width:100%;border-radius:var(--r-s);border:1px solid var(--verde);
+  background:var(--papel)}
+.cartas-fotos figcaption{margin-top:8px;font-family:"Signika",sans-serif;font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--verde)}
+
+/* ─────────── Reseñas ─────────── */
+.revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:16px;padding-top:24px}
+.rev{margin:0;background:var(--papel);border:1px solid var(--linea);border-radius:var(--r);
+  padding:26px 24px;display:flex;flex-direction:column;
+  transition:transform .3s var(--fx),border-color .3s var(--fx),box-shadow .3s var(--fx)}
+.rev:hover{transform:translateY(-3px);border-color:var(--verde);box-shadow:var(--sombra-alta)}
+.stars{color:var(--oro);letter-spacing:.16em;margin:0 0 12px;font-size:16px}
+.rev p:not(.stars){margin:0 0 18px;font-size:16px;font-family:"Piazzolla",serif;line-height:1.6}
+.rev p b{color:var(--verde-os);font-weight:600}
+.rev footer{display:flex;flex-direction:column;margin-top:auto;
+  border-top:1px solid var(--linea);padding-top:13px}
+.rev footer b{font-family:"Piazzolla",serif;font-size:15px;color:var(--tinta);line-height:1.3}
+.rev footer span{font-family:"Signika",sans-serif;font-size:9.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--gris);margin-top:5px}
+.respuesta{margin-top:14px;padding:13px 16px;background:var(--verde-cl);
+  border-radius:var(--r-s);border-left:3px solid var(--verde)}
+.respuesta b{display:block;font-family:"Signika",sans-serif;font-size:9.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--verde-os);margin-bottom:5px}
+.respuesta p{margin:0 !important;font-size:14.5px !important;
+  font-family:"Gantari",sans-serif !important;color:var(--tinta)}
+.rev-cta{display:flex;gap:11px;flex-wrap:wrap;padding:26px 0 clamp(32px,5vw,58px)}
+
+/* ─────────── Visítanos ─────────── */
+.visit{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(22px,3.5vw,44px);
+  align-items:start;padding:24px 0 clamp(30px,4vw,48px)}
+.visit-info{display:flex;flex-direction:column}
+.vblock{padding:20px 0;border-bottom:1px solid var(--linea)}
+.vblock:first-child{padding-top:0}
+.vblock h3{font-family:"Signika",sans-serif;font-weight:600;font-size:10.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--verde-os);margin:0 0 10px}
+.vblock p{margin:0 0 4px}
+.vblock .sub{font-size:13.5px;color:var(--gris);line-height:1.7}
+.vblock .sub b{color:var(--tinta)}
+/* :not(.btn) para que .btn-solid no pierda su color por especificidad:
+   ese bug ya dejó un botón invisible en Río Deva. */
+.vblock a:not(.btn){color:var(--verde-os)}
+.vblock-cta{border-bottom:0;display:flex;gap:10px;flex-wrap:wrap;padding-top:22px}
+.estado{display:flex;align-items:center;gap:9px;margin-bottom:12px !important;font-weight:600}
+
+.horario{list-style:none;margin:0 0 10px;padding:0}
+.horario li{display:flex;justify-content:space-between;gap:14px;padding:7px 11px;
+  border-radius:var(--r-s);font-size:15px}
+.horario li span{color:var(--gris)}
+.horario li b{font-weight:600;font-variant-numeric:tabular-nums;color:var(--tinta);
+  font-size:14px;text-align:right}/* ⚠️ 16-09-2026 — el día de hoy nunca se destacaba.
+   `horario.js` le pone al <li> de hoy la clase **hs-hoy**, no `hoy`, así
+   que estos estilos no aplicaban en ningún sitio: lo único que se veía
+   era la negrita que el propio módulo inyecta. Se duplica el selector en
+   vez de tocar el módulo, que ya está repartido en 76 proyectos. */
+.horario li.hoy,.horario li.hs-hoy{background:var(--tinta)}.horario li.hoy span,.horario li.hs-hoy span{color:#A9B6AF}.horario li.hoy b,.horario li.hs-hoy b{color:var(--oro-cl)}
+.cerrado{color:var(--oro) !important}
+
+.visit-map{height:clamp(330px,52vh,520px);border-radius:var(--r);overflow:hidden;
+  border:1px solid var(--linea);box-shadow:var(--sombra)}
+.visit-map iframe{width:100%;height:100%;display:block}
+
+.fachada{margin:0;padding:0 0 clamp(32px,5vw,58px)}
+.fachada img{width:100%;max-height:420px;object-fit:cover;object-position:center 35%;
+  border-radius:var(--r);border:1px solid var(--linea);box-shadow:var(--sombra)}
+.fachada figcaption{margin-top:11px;font-size:14px;color:var(--gris);text-align:center}
+
+/* ─────────── Botones ─────────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:47px;
+  padding:12px 27px;border-radius:99px;font-family:"Signika",sans-serif;
+  font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;
+  border:1px solid var(--verde-os);
+  transition:transform .16s var(--fx),background .25s var(--fx),color .25s var(--fx)}
+.btn-solid{background:var(--verde-os);color:var(--hueso)}
+.btn-solid:hover{background:var(--verde)}
+.btn-ghost{background:transparent;color:var(--verde-os)}
+.btn-ghost:hover{background:rgba(47,143,99,.12)}
+.btn:active{transform:scale(.96)}
+
+/* ─────────── Pie ─────────── */
+.foot{
+  background:var(--tinta);color:#9FAFA6;
+  /* La franja de flotantes del teléfono mide 74px: se le deja sitio. */
+  padding:clamp(34px,4.5vw,54px) 0 calc(clamp(34px,4.5vw,54px) + 130px);
+  border-top:3px solid var(--verde);
+}
+.foot-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px}
+.foot p{margin:0 0 5px;font-size:15px}
+.foot a{color:var(--oro-cl)}
+/* .foot p (0,1,1) le gana a .foot-brand (0,1,0): hay que calificarlo. */
+.foot p.foot-brand{font-family:"Piazzolla",serif;font-size:34px;font-weight:600;
+  color:var(--hueso);margin-bottom:0;line-height:1.05}
+.foot p.foot-sub{font-family:"Signika",sans-serif;font-size:11px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--verde);margin-bottom:12px}
+.foot-demo{font-size:14px;border-left:1px solid rgba(47,143,99,.35);padding-left:18px}
+.foot-demo strong{color:var(--hueso)}
+
+/* ─────────── Reveal ─────────── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s var(--fx),transform .6s var(--fx)}
+.reveal.seen{opacity:1;transform:none}
+
+/* ─────────── Mobile ─────────── */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:28px}
+  .hero-img{order:-1}
+  .hero-img img{aspect-ratio:16/10}
+  .split,.split-rev{grid-template-columns:1fr}
+  .split-rev .split-img{order:0}
+  .visit{grid-template-columns:1fr}
+  .visit-map{height:320px}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .burger{display:flex}
+  .nav{position:absolute;left:0;right:0;top:100%;background:var(--tinta);
+    border-bottom:2px solid var(--verde);box-shadow:var(--sombra-alta);
+    max-height:0;overflow:hidden;visibility:hidden;
+    transition:max-height .36s var(--fx),visibility .36s var(--fx)}
+  .nav.open{max-height:70vh;overflow-y:auto;visibility:visible}
+  .nav-links{flex-direction:column;gap:0;padding:8px 14px 16px}
+  .nav-links a{padding:14px 12px;font-size:17px;border-bottom:1px solid rgba(47,143,99,.22)}
+  .nav-links li:last-child a{border-bottom:0}
+  .nav-links a::after{display:none}
+  .nav-links a.on{background:rgba(47,143,99,.16)}
+  .head-in{flex-wrap:wrap;position:relative}
+  /* min-width:0 deja que el bloque de marca se encoja: un flex item no
+     baja de su contenido si no se le permite, y el burger se caía a una
+     segunda fila. */
+  .brand{min-width:0}
+  .brand-txt{min-width:0}
+  .brand-txt strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .brand-txt em{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cifras{grid-template-columns:repeat(2,1fr);gap:20px 8px}
+  .hero-cta .btn,.vblock-cta .btn,.rev-cta .btn{flex:1 1 auto}
+  .menu-item{grid-template-columns:auto 1fr;row-gap:8px}
+  .menu-item .price{grid-column:2;justify-self:start}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .cita{font-size:20px;padding:20px 22px}
+  /* El horario partido no cabe en una línea en 375px. */
+  .horario li{flex-direction:column;align-items:flex-start;gap:2px}
+  .horario li b{text-align:left;font-size:15px}
+  .fachada img{max-height:260px}
+}
+@media (max-width:400px){
+  .hero h1{font-size:38px}
+  .cifras b{font-size:28px}
+  .cita{font-size:18px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;scroll-behavior:auto !important}
+  .reveal{opacity:1;transform:none}
+  .loader-grano{stroke-dashoffset:0}
+}
+
+/* Puente entre la paleta de este sitio y el bloque común del estándar */
+:root{
+  --c-bloque:var(--papel);
+  --c-linea:var(--linea);
+  --c-radio:var(--r);
+  --c-sombra:var(--sombra);
+  --c-sombra-alta:var(--sombra-alta);
+  --c-suave:var(--gris);
+  --c-marca:var(--verde-os);
+  --c-tinta:var(--tinta);
+  --c-claro:var(--oro-cl);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   ESTÁNDAR 15-09-2026 — pedido por Matías, va en TODAS las cafeterías
+   1. Carta partida en bloques visuales, uno por categoría
+   2. Flotantes: contacto a la derecha, delivery a la izquierda
+   3. Redes con el logo real de cada plataforma + rejilla de 3 fotos
+   4. Visítanos: teléfono en tarjeta, "cómo pedir" en chips, sin gasto
+   5. Más movimiento: reveal escalonado y contadores que suben
+
+   Cada sitio define antes sus propias variables --c-*: así este bloque
+   es idéntico en los tres proyectos y hereda la identidad de cada uno.
+   ════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. Carta por bloques ─────────────────────────────────────── */
+.carta-bloque{
+  background:var(--c-bloque);
+  border:1px solid var(--c-linea);
+  border-radius:var(--c-radio);
+  padding:clamp(20px,3vw,30px);
+  margin:0 0 20px;
+  box-shadow:var(--c-sombra);
+}
+.carta-bloque-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+  margin:0 0 18px;padding-bottom:14px;
+  border-bottom:2px solid var(--c-linea);
+}
+.carta-bloque-head h3{margin:0}
+.carta-bloque-n{
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--c-suave);font-weight:600;white-space:nowrap;
+}
+.carta-bloque .aviso{margin:0 0 16px}
+
+/* ─── 2. Flotantes ─────────────────────────────────────────────── */
+.float{position:fixed;bottom:16px;z-index:800;display:flex;flex-direction:column;gap:10px}
+.float-right{right:16px;align-items:flex-end}
+/* La izquierda arranca más arriba a propósito: abajo del todo, en left:20px,
+   vive el botón del carrito que inyecta carrito.js. El de delivery se apila
+   encima en vez de taparlo. */
+.float-left{left:20px;bottom:88px;align-items:flex-start}
+
+.fab{
+  width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;
+  display:grid;place-content:center;text-decoration:none;
+  box-shadow:0 4px 14px rgba(0,0,0,.18),0 12px 30px -12px rgba(0,0,0,.4);
+  transition:transform .26s var(--fx),box-shadow .26s var(--fx),opacity .3s var(--fx);
+  animation:fabIn .45s var(--fx) both;
+}
+.fab svg{width:25px;height:25px;fill:currentColor;display:block}
+.fab:hover{transform:translateY(-4px) scale(1.07)}
+.fab:active{transform:scale(.92)}
+.fab:nth-child(2){animation-delay:.07s}
+.fab:nth-child(3){animation-delay:.14s}
+@keyframes fabIn{from{opacity:0;transform:translateY(18px) scale(.7)}to{opacity:1;transform:none}}
+
+/* Colores propios de cada plataforma, no inventados */
+.fab-ig{background:linear-gradient(45deg,#F9CE34,#EE2A7B 50%,#6228D7);color:#fff}
+.fab-wsp{background:#25D366;color:#fff}
+.fab-tiktok{background:#010101;color:#fff}
+.fab-tel{color:#fff}
+.fab-delivery{
+  color:#fff;width:auto;height:52px;border-radius:99px;padding:0 20px;gap:10px;
+  grid-auto-flow:column;align-items:center;font-weight:700;font-size:14.5px;
+}
+.fab-delivery svg{width:21px;height:21px}
+/* El nombre de la plataforma NO puede partirse: en 375px "Uber Eats" caía
+   a dos líneas y deformaba la píldora. */
+.fab-delivery span{white-space:nowrap}
+.fab-rappi{background:#FF441F}
+.fab-pedidosya{background:#FA0050}
+.fab-ubereats{background:#06C167}
+
+/* El "volver arriba" sólo aparece cuando ya bajaste */
+.fab-top{opacity:0;pointer-events:none}
+.fab-top.show{opacity:1;pointer-events:auto}
+
+/* Etiqueta que se despliega al pasar el mouse */
+.fab[data-label]{position:relative}
+.fab[data-label]::after{
+  content:attr(data-label);
+  position:absolute;right:calc(100% + 10px);top:50%;
+  transform:translateY(-50%) translateX(6px);
+  background:var(--c-tinta);color:var(--c-claro);
+  font-size:12.5px;font-weight:600;letter-spacing:.02em;
+  padding:6px 11px;border-radius:7px;white-space:nowrap;
+  opacity:0;pointer-events:none;
+  transition:opacity .22s var(--fx),transform .22s var(--fx);
+}
+.float-left .fab[data-label]::after{
+  right:auto;left:calc(100% + 10px);transform:translateY(-50%) translateX(-6px);
+}
+.fab[data-label]:hover::after{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ─── 3. Redes: tarjeta con logo real y rejilla de 3 fotos ─────── */
+.redes{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:18px;padding-top:24px;
+  /* align-items:start para que cada tarjeta mida lo que mide su contenido.
+     Sin esto, la que no lleva rejilla de fotos (la del teléfono) se estira
+     igual que las otras y queda con medio recuadro vacío. */
+  align-items:start;
+}
+.red-card{
+  background:var(--c-bloque);border:1px solid var(--c-linea);
+  border-radius:var(--c-radio);overflow:hidden;box-shadow:var(--c-sombra);
+  display:flex;flex-direction:column;
+  transition:transform .3s var(--fx),box-shadow .3s var(--fx);
+}
+.red-card:hover{transform:translateY(-4px);box-shadow:var(--c-sombra-alta)}
+
+.red-card-head{
+  display:flex;align-items:center;gap:14px;
+  padding:18px 20px;text-decoration:none;color:inherit;
+}
+.red-logo{
+  width:48px;height:48px;flex:none;border-radius:13px;
+  display:grid;place-content:center;color:#fff;
+  transition:transform .3s var(--fx);
+}
+.red-card-head:hover .red-logo{transform:rotate(-6deg) scale(1.07)}
+.red-logo svg{width:27px;height:27px;fill:currentColor;display:block}
+.red-logo-ig{background:linear-gradient(45deg,#F9CE34,#EE2A7B 50%,#6228D7)}
+.red-logo-wsp{background:#25D366}
+.red-logo-tiktok{background:#010101}
+.red-logo-map{background:#EA4335}
+.red-logo-fb{background:#1877F2}
+.red-logo-tel{background:var(--c-marca)}
+
+.red-card-txt{display:flex;flex-direction:column;line-height:1.3;min-width:0;flex:1}
+.red-card-txt b{font-size:18px;overflow-wrap:anywhere}
+.red-card-txt em{font-style:normal;font-size:13.5px;color:var(--c-suave)}
+.red-card-cta{
+  font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--c-marca);white-space:nowrap;
+  transition:transform .24s var(--fx);
+}
+.red-card-head:hover .red-card-cta{transform:translateX(3px)}
+
+/* La rejilla: 3 fotos reales del local, clicables hacia el perfil */
+.red-grid{
+  position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;
+  margin-top:auto;text-decoration:none;
+}
+.red-grid figure{margin:0;overflow:hidden;aspect-ratio:1/1}
+.red-grid img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .55s var(--fx),filter .35s var(--fx);
+}
+.red-grid::after{
+  content:attr(data-cta);
+  position:absolute;inset:0;display:grid;place-content:center;
+  background:rgba(0,0,0,.52);color:#fff;
+  font-size:14.5px;font-weight:700;letter-spacing:.04em;
+  opacity:0;transition:opacity .3s var(--fx);
+}
+.red-grid:hover img{transform:scale(1.07);filter:brightness(.82)}
+.red-grid:hover::after{opacity:1}
+.red-pie{
+  font-size:12px;color:var(--c-suave);padding:10px 20px 14px;margin:0;
+  border-top:1px solid var(--c-linea);
+}
+
+/* ─── 4. Visítanos: teléfono y "cómo pedir" ────────────────────── */
+.vtel{
+  display:flex;align-items:center;gap:14px;text-decoration:none;
+  background:var(--c-bloque);border:1px solid var(--c-linea);
+  border-radius:var(--c-radio);padding:15px 18px;margin-top:4px;
+  box-shadow:var(--c-sombra);
+  transition:transform .26s var(--fx),box-shadow .26s var(--fx),border-color .26s var(--fx);
+}
+.vtel:hover{transform:translateY(-3px);box-shadow:var(--c-sombra-alta);border-color:var(--c-marca)}
+.vtel-ico{
+  width:44px;height:44px;flex:none;border-radius:12px;display:grid;place-content:center;
+  background:var(--c-marca);color:#fff;
+}
+.vtel-ico svg{width:22px;height:22px;fill:currentColor;display:block}
+.vtel-txt{display:flex;flex-direction:column;line-height:1.3}
+.vtel-txt b{font-size:19px;font-variant-numeric:tabular-nums}
+.vtel-txt em{font-style:normal;font-size:12.5px;color:var(--c-suave)}
+.vtel-flecha{
+  margin-left:auto;color:var(--c-marca);font-size:19px;
+  transition:transform .24s var(--fx);
+}
+.vtel:hover .vtel-flecha{transform:translateX(4px)}
+
+/* Variante sin teléfono: mismo recuadro, tono apagado, sin link */
+.vtel-sin{cursor:default}
+.vtel-sin:hover{transform:none;box-shadow:var(--c-sombra);border-color:var(--c-linea)}
+.vtel-sin .vtel-ico{background:var(--c-suave);opacity:.55}
+.vtel-sin .vtel-txt b{font-size:16px}
+
+.vpedir{display:flex;flex-wrap:wrap;gap:9px;margin:6px 0 8px;padding:0;list-style:none}
+.vpedir li{
+  display:flex;align-items:center;gap:8px;
+  background:var(--c-bloque);border:1px solid var(--c-linea);
+  border-radius:99px;padding:8px 15px 8px 11px;font-size:14.5px;font-weight:500;
+  transition:transform .24s var(--fx),border-color .24s var(--fx);
+}
+.vpedir li:hover{transform:translateY(-2px);border-color:var(--c-marca)}
+.vpedir svg{width:17px;height:17px;fill:var(--c-marca);flex:none;display:block}
+
+/* ─── 5. Movimiento ────────────────────────────────────────────── */
+/* Reveal escalonado: cada hijo entra un pelo después que el anterior */
+.stagger > *{opacity:0}
+.stagger.seen > *{
+  animation:subir .5s var(--fx) both;
+  animation-delay:calc(var(--i,0) * 55ms);
+}
+@keyframes subir{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  .fab,.stagger > *{animation:none !important}
+  .stagger > *{opacity:1;transform:none}
+}
+
+@media (max-width:760px){
+  .float{bottom:12px}
+  .float-right{right:12px}
+  .float-left{left:16px;bottom:80px}
+  .fab{width:48px;height:48px}
+  .fab svg{width:23px;height:23px}
+  /* En el teléfono la etiqueta estorba más de lo que ayuda */
+  .fab[data-label]::after{display:none}
+
+  /* width:auto hay que repetirlo acá: el `.fab{width:48px}` de esta misma
+     media query está MÁS ABAJO en el archivo que el `.fab-delivery{width:auto}`
+     de arriba y, con la misma especificidad (0,1,0), le ganaba. Resultado:
+     la píldora quedaba de 48px y el icono del camión se salía por la
+     izquierda. */
+  .fab-delivery{height:48px;padding:0 16px;font-size:13px;width:auto}
+  .carta-bloque{padding:18px 15px}
+  .red-card-cta{display:none}
+  .redes{grid-template-columns:1fr}
+}
+
+/* ── Parche 15-09-2026: el "+" del carrito en filas de carta ──────────
+   carrito.js distingue dos layouts: tarjeta con foto (el "+" va absoluto
+   en la esquina) y fila simple (lo añade al final de la fila). Pero
+   nuestras .menu-item son grid de 3 columnas, así que en las filas sin
+   foto el "+" caía a una SEGUNDA FILA del grid, torcido y abajo a la
+   izquierda. Se ancla a la esquina igual que en las tarjetas.
+   Nota: carta-fotos.js siempre mete un placeholder de ~62px, así que la
+   fila nunca es tan baja como para que el "+" pise la píldora de precio. */
+.menu-item{position:relative}
+.menu-item > .uc-add{position:absolute;top:8px;right:10px;margin:0}
+
+/* El "+" quedaba encima de la píldora de precio, que va centrada a la
+   derecha. Se le reserva un poco de alto arriba SOLO a las filas que
+   realmente tienen "+", para que el precio baje y no se pisen. */
+.menu-item:has(> .uc-add){padding-top:26px}
