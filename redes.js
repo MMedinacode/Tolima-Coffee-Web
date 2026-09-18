@@ -20,7 +20,8 @@
        threads:   { user:"cafe_x", seguidores:"19" },
        youtube:   { url:"https://youtube.com/@x", nombre:"Café X" },
        whatsapp:  { numero:"56912345678", nota:"Sólo mensajes" },
-       telefono:  { numero:"+56221234567" }
+       telefono:  { numero:"+56221234567" },
+       correo:    { direccion:"hola@cafe.cl", nota:"Para encargos" }
      };
 
    Si `window.REDES` no existe, el módulo no hace nada: nunca inventa un
@@ -136,10 +137,20 @@
       url: function (d) { return 'tel:' + String(d.numero).replace(/[^\d+]/g, ''); },
       etiqueta: function (d) { return formatearTel(d.numero); },
       icono: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/>'
+    },
+    correo: {
+      nombre: 'Correo',
+      degradado: 'linear-gradient(45deg,#D93025,#8A1C14)',
+      url: function (d) { return 'mailto:' + String(d.direccion || '').trim(); },
+      etiqueta: function (d) { return String(d.direccion || '').trim(); },
+      icono: '<rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/>'
     }
   };
-  /* El orden importa: primero donde el local publica, después el contacto. */
-  var ORDEN = ['instagram', 'tiktok', 'facebook', 'threads', 'youtube', 'whatsapp', 'telefono'];
+  /* El orden importa: primero donde el local publica, después el contacto.
+     El correo va último: es el canal más lento, pero para encargos y
+     banqueterías suele ser el que de verdad usan. */
+  var ORDEN = ['instagram', 'tiktok', 'facebook', 'threads', 'youtube',
+               'whatsapp', 'telefono', 'correo'];
 
   function svg(paths) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
@@ -424,13 +435,14 @@
     var cta = document.createElement('a');
     cta.className = 'rd-cta';
     cta.href = href;
-    if (!/^tel:/.test(href)) {
+    if (!/^(tel|mailto):/.test(href)) {
       cta.target = '_blank';
       cta.rel = 'noopener';
     }
     cta.style.background = m.degradado;
     cta.textContent = clave === 'whatsapp' ? 'Escribir por WhatsApp'
                     : clave === 'telefono' ? 'Llamar'
+                    : clave === 'correo' ? 'Escribir un correo'
                     : 'Ver ' + m.nombre;
     art.appendChild(cta);
     return art;
