@@ -282,13 +282,44 @@
         e.preventDefault();
         alClic();
       });
+      /* ── Dónde va el enlace ──────────────────────────────────────────
+         Muchos menús envuelven cada pestaña en su propia celda (un <li>,
+         casi siempre) y el espacio entre pestañas es el `gap` ENTRE esas
+         celdas. Si el enlace nuevo se mete dentro de la celda de al lado,
+         quedan dos pestañas compartiendo celda y salen pegadas, como si
+         "RedesVisítanos" fuera una sola palabra. Pasaba en Café Pixel.
+
+         Así que cuando la pestaña de referencia tiene celda propia, se
+         clona la celda vacía y el enlace va dentro de la celda nueva.
+         Donde no hay celda —el menú son enlaces sueltos— se inserta como
+         siempre. */
+      function celdaDe(el) {
+        var p = el && el.parentNode;
+        if (!p || p === barra) return null;
+        if (p.children.length !== 1) return null;
+        if (!/^(LI|DIV|SPAN)$/.test(p.tagName)) return null;
+        return p;
+      }
+
+      var refCelda = celdaDe(anclaFinal || ultimo);
+
       if (anclaFinal) {
-        anclaFinal.parentNode.insertBefore(link, anclaFinal);
+        if (refCelda) {
+          var celdaNueva = refCelda.cloneNode(false);
+          celdaNueva.appendChild(link);
+          refCelda.parentNode.insertBefore(celdaNueva, refCelda);
+        } else {
+          anclaFinal.parentNode.insertBefore(link, anclaFinal);
+        }
         /* Visítanos se corre un número hacia adelante si el sitio los usa. */
         var idxFinal = anclaFinal.querySelector('.nav-idx, [class*="idx"], [class*="num"]');
         if (idx && idxFinal && /^\s*\d+\s*$/.test(idxFinal.textContent || '')) {
           idxFinal.textContent = ('0' + (parseInt(idx.textContent, 10) + 1)).slice(-2);
         }
+      } else if (refCelda) {
+        var celdaFinal = refCelda.cloneNode(false);
+        celdaFinal.appendChild(link);
+        refCelda.parentNode.insertBefore(celdaFinal, refCelda.nextSibling);
       } else {
         ultimo.parentNode.insertBefore(link, ultimo.nextSibling);
       }
