@@ -21,7 +21,8 @@
        youtube:   { url:"https://youtube.com/@x", nombre:"Café X" },
        whatsapp:  { numero:"56912345678", nota:"Sólo mensajes" },
        telefono:  { numero:"+56221234567" },
-       correo:    { direccion:"hola@cafe.cl", nota:"Para encargos" }
+       correo:    { direccion:"hola@cafe.cl", nota:"Para encargos" },
+       google:    { cid:"1516110527975030054", rating:"4,6", resenas:"437" }
      };
 
    Si `window.REDES` no existe, el módulo no hace nada: nunca inventa un
@@ -138,6 +139,24 @@
       etiqueta: function (d) { return formatearTel(d.numero); },
       icono: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/>'
     },
+    google: {
+      nombre: 'Ficha en Google',
+      degradado: 'linear-gradient(135deg,#4285F4,#34A853 45%,#FBBC05 72%,#EA4335)',
+      /* Por CID, que es la parte derecha del place id hexadecimal pasada a
+         decimal. Abre la ficha directo. Si el sitio ya trae una URL suya
+         —las que se escribieron a mano usan el formato ChIJ— se respeta. */
+      url: function (d) {
+        if (d.url) return d.url;
+        if (d.cid) return 'https://maps.google.com/?cid=' + String(d.cid).replace(/\D/g, '');
+        return null;
+      },
+      etiqueta: function (d) {
+        if (d.rating && d.resenas) return d.rating + ' \u2605 \u00b7 ' + d.resenas + ' rese\u00f1as';
+        if (d.rating) return d.rating + ' \u2605';
+        return 'Ver la ficha';
+      },
+      icono: '<path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/>'
+    },
     correo: {
       nombre: 'Correo',
       degradado: 'linear-gradient(45deg,#D93025,#8A1C14)',
@@ -150,7 +169,7 @@
      El correo va último: es el canal más lento, pero para encargos y
      banqueterías suele ser el que de verdad usan. */
   var ORDEN = ['instagram', 'tiktok', 'facebook', 'threads', 'youtube',
-               'whatsapp', 'telefono', 'correo'];
+               'google', 'whatsapp', 'telefono', 'correo'];
 
   function svg(paths) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
@@ -443,6 +462,7 @@
     cta.textContent = clave === 'whatsapp' ? 'Escribir por WhatsApp'
                     : clave === 'telefono' ? 'Llamar'
                     : clave === 'correo' ? 'Escribir un correo'
+                    : clave === 'google' ? 'Abrir en Google Maps'
                     : 'Ver ' + m.nombre;
     art.appendChild(cta);
     return art;
